@@ -2,7 +2,7 @@ import { render, waitFor } from "@testing-library/react";
 import { mocked } from "jest-mock";
 
 import * as apiConnect from "../../lib/apiConnect";
-import WidgetDisplay from "../WidgetDisplay";
+import WidgetDisplay from "../WidgetCard";
 import WidgetList from "./index";
 
 jest.mock("../WidgetDisplay");

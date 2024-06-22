@@ -51,7 +51,7 @@ const WidgetDialog = ({
           {widgetDetail.name}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          ${widgetDetail.price}
+          ${widgetDetail.price.toFixed(2)}
         </Typography>
         <Rating
           size="small"
@@ -125,13 +125,16 @@ const WidgetDialog = ({
       <>
         <Button
           color="success"
+          variant="contained"
           onClick={() => {
             handleSubmit();
           }}
         >
           Create
         </Button>
-        <Button onClick={() => closeDialog()}>Cancel</Button>
+        <Button color="error" onClick={() => closeDialog()}>
+          Cancel
+        </Button>
       </>
     );
   };
@@ -157,7 +160,7 @@ const WidgetDialog = ({
   // Like telling * fields are required, notification for the requests, etc.
   return (
     <Dialog open={displayDialog} onClose={() => closeDialog()}>
-      <DialogTitle>New Widget</DialogTitle>
+      <DialogTitle>{dialogMode === "create" ? "New Widget" : null}</DialogTitle>
       <DialogContent>{switchView()}</DialogContent>
       <DialogActions>{switchActions()}</DialogActions>
     </Dialog>

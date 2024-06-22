@@ -3,7 +3,6 @@ import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
 
-import WidgetCard from "../WidgetCard";
 import {
   fetchAllWidgets,
   deleteWidget,
@@ -12,6 +11,7 @@ import {
 } from "../../lib/apiConnect";
 import { Button, CircularProgress, Divider } from "@mui/material";
 import WidgetDialog from "../WidgetDialog";
+import WidgetDisplay from "../WidgetCard";
 
 const WidgetList = (): JSX.Element => {
   const [widgets, setWidgets] = useState<Widget[]>([]);
@@ -107,7 +107,7 @@ const WidgetList = (): JSX.Element => {
         ) : (
           widgets.map((current, index) => (
             // WidgetCard can handle the Edit and Delete of each Widget listed
-            <WidgetCard
+            <WidgetDisplay
               onDelete={handleDelete}
               viewDetail={openDetailView}
               key={index}

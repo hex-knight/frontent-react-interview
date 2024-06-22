@@ -17,7 +17,7 @@ import {
 } from "@mui/material";
 import { Cancel, Delete, Edit, RemoveRedEye, Save } from "@mui/icons-material";
 
-export interface DisplayWidgetProps {
+export interface WidgetCardProps {
   widget: Widget;
   onDelete: any;
   viewDetail: any;
@@ -27,7 +27,7 @@ const WidgetCard = ({
   widget,
   onDelete,
   viewDetail,
-}: DisplayWidgetProps): JSX.Element => {
+}: WidgetCardProps): JSX.Element => {
   const [currentWidget, setCurrentWidget] = useState(widget);
   const [tempWidget, setTempWidget] = useState(widget);
   const [cardMode, setCardMode] = useState("view");
@@ -48,7 +48,7 @@ const WidgetCard = ({
           {currentWidget.name}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          ${currentWidget.price}
+          ${currentWidget.price.toFixed(2)}
         </Typography>
         <Rating
           size="small"
